@@ -38,7 +38,7 @@ Below we show the ground-truth and predicted motion renderings for each sample.
 
 | Ground Truth (GT) | Prediction (Pred) |
 |---|---|
-| <img src="assets/samples/sample_01_gt.png" width="360"> | <img src="assets/samples/sample_01_pred.png" width="360"> |
+| <img src="fig5.png" width="360"> | <img src="assets/samples/sample_01_pred.png" width="360"> |
 
 <p align="center">
   <a href="assets/videos/sample_01_gt.mp4">Sample 1 GT Video</a> &nbsp; | &nbsp;
