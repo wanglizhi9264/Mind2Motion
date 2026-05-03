@@ -6,21 +6,40 @@
 
 This is the official repository for the paper **Mind2Motion: Semantic Alignment for EEG-Driven 3D Human Motion Generation**.
 
+Mind2Motion investigates EEG-driven 3D human motion generation under an action-observation paradigm. The framework first aligns EEG responses with action-centric textual semantics and then uses the aligned semantic condition to guide diffusion-based 3D motion generation.
+
 ## Qualitative Results
 
-| Case | Video |
-|:---:|:---|
+Selected qualitative comparisons between ground-truth and EEG-generated motions.  
+Left: Ground Truth (GT), Right: EEG-generated motion.
+
+<p align="center">
+  <a href="./assets/videos/case1.mp4">
+    <img src="./assets/videos/case1_compare.gif" alt="Mind2Motion Case 1" width="95%">
+  </a>
+</p>
+
+<p align="center">
+  <a href="./assets/videos/case2.mp4">
+    <img src="./assets/videos/case2_compare.gif" alt="Mind2Motion Case 2" width="95%">
+  </a>
+</p>
+
+<p align="center">
+  <a href="./assets/videos/case3.mp4">
+    <img src="./assets/videos/case3_compare.gif" alt="Mind2Motion Case 3" width="95%">
+  </a>
+</p>
+
+These examples illustrate representative successful cases under EEG-conditioned 3D human motion generation. The generated sequences preserve high-level action semantics and produce temporally coherent motion trajectories under favorable EEG decoding conditions.
+
+### Video Links
+
+| Case | MP4 |
+|:---:|:---:|
 | Case 1 | [View MP4](./assets/videos/case1.mp4) |
 | Case 2 | [View MP4](./assets/videos/case2.mp4) |
 | Case 3 | [View MP4](./assets/videos/case3.mp4) |
-
-<p align="center">
-  <em>Representative EEG-driven 3D human motion generation results. Left: Ground Truth (GT), Right: EEG-generated motion.</em>
-</p>
-
-## Overview
-
-Mind2Motion investigates EEG-driven 3D human motion generation under an action-observation paradigm. The framework first aligns EEG responses with action-centric textual semantics and then uses the aligned semantic condition to guide diffusion-based 3D motion generation.
 
 ## Qualitative Image Examples
 
