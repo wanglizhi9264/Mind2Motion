@@ -1,0 +1,87 @@
+{
+  "dataset": {
+    "name": "mixed_session_v8_without_jump_throw_8class",
+    "h5": "data/eeg_motion_text_v8_without_jump_throw_8class.h5",
+    "shape": [2944, 7, 1500],
+    "sampling_rate_hz": 250,
+    "classes": 8,
+    "splits": {
+      "train": 2352,
+      "val": 299,
+      "test": 293
+    },
+    "unique_text_ids": {
+      "train": 1250,
+      "val": 159,
+      "test": 155
+    },
+    "text_id_overlap_between_splits": 0
+  },
+  "encoder": {
+    "channels": 7,
+    "samples": 1500,
+    "embedding_dim": 512,
+    "num_classes": 8,
+    "dropout": 0.1,
+    "parameters": 390650
+  },
+  "encoder_training": {
+    "epochs": 30,
+    "patience": 6,
+    "batch_size": 16,
+    "eval_batch_size": 64,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0007,
+    "weight_decay": 0.001,
+    "scheduler": "CosineAnnealingLR",
+    "gradient_clip": 1.0,
+    "temperature": 0.07,
+    "loss": {
+      "multi_positive_info_nce": 0.25,
+      "cosine": 0.025,
+      "cross_entropy": 2.0,
+      "label_smoothing": 0.1
+    }
+  },
+  "mapper": {
+    "input_dim": 512,
+    "hidden_dim": 256,
+    "output_tokens": 4,
+    "token_dim": 512,
+    "dropout": 0.1,
+    "epochs": 60,
+    "patience": 8,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "cosine_weight": 0.2,
+    "nce_weight": 0.1,
+    "temperature": 0.07
+  },
+  "diffusion": {
+    "motion_dim": 263,
+    "hidden_dim": 768,
+    "layers": 6,
+    "heads": 12,
+    "condition_dim": 512,
+    "max_frames": 196,
+    "dropout": 0.2,
+    "prediction": "x0",
+    "steps": 1000,
+    "beta_schedule": "linear",
+    "beta_start": 0.0001,
+    "beta_end": 0.02,
+    "sampling": {
+      "method": "DDIM",
+      "steps": 50,
+      "eta": 0.0,
+      "cfg_scale": 1.0
+    }
+  },
+  "evaluation": {
+    "checkpoint_selection": "highest validation classification accuracy",
+    "default_split": "test",
+    "classification": ["accuracy", "balanced_accuracy", "macro_f1"],
+    "retrieval": ["R@1", "R@3", "R@5", "R@10", "MRR", "paired_cosine"]
+  }
+}
